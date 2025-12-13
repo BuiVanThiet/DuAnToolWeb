@@ -13,12 +13,13 @@ const updateThemeIcon = () => {
     // 2. LOGIC MỚI: Ẩn/Hiện chữ Navbar tại đây
     const nameText = document.getElementById("nameNavbar"); // Lấy thẻ chữ
 
-    if (sidebar.classList.contains("collapsed-custome")) {
-        // Nếu sidebar đang đóng -> Ẩn chữ
-        nameText.style.display = "none";
+    console.log(localStorage.theme)
+    if (localStorage.theme === 'light') {
+        console.log(1)
+        nameText.style.color = "black";
     } else {
-        // Nếu sidebar đang mở -> Hiện chữ
-        nameText.style.display = "block";
+        console.log(2)
+        nameText.style.color = "white";
     }
 };
 
@@ -41,17 +42,26 @@ themeToggleBtn.addEventListener("click", () => {
 sidebarToggleBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed-custome");
+        const nameText = document.getElementById("nameNavbar"); // Lấy thẻ chữ
+
+        if (sidebar.classList.contains("collapsed-custome")) {
+            // Nếu sidebar đang đóng -> Ẩn chữ
+            nameText.style.display = "none";
+        } else {
+            // Nếu sidebar đang mở -> Hiện chữ
+            nameText.style.display = "block";
+        }
         updateThemeIcon();
     });
 });
 
 // Expand the sidebar when the search form is clicked
-searchForm.addEventListener("click", () => {
-    if (sidebar.classList.contains("collapsed-custome")) {
-        sidebar.classList.remove("collapsed-custome");
-        searchForm.querySelector("input").focus(); // "input" là thẻ HTML, giữ nguyên
-    }
-});
+// searchForm.addEventListener("click", () => {
+//     if (sidebar.classList.contains("collapsed-custome")) {
+//         sidebar.classList.remove("collapsed-custome");
+//         searchForm.querySelector("input").focus(); // "input" là thẻ HTML, giữ nguyên
+//     }
+// });
 
 // Expand sidebar by default on large screens
 if (window.innerWidth > 768) sidebar.classList.remove("collapsed-custome");

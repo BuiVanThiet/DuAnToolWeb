@@ -14,8 +14,24 @@ public class Home256 extends BaseController {
         }
         return "homeTool";
     }
+    @GetMapping("/list-product-company")
+    public String getHomeDanhSachSanPham() {
+        return "HomeDanhSachSanPham";
+    }
     @GetMapping("/dowload-image")
     public String getHomeDowloadImage() {
         return "HomeDowloadImage";
+    }
+    @GetMapping("/team-support-tool")
+    public String getHomeTeamSupport() {
+        return "HomeTeamHoTro";
+    }
+    @GetMapping("/report-and-update")
+    public String getHomeBaoCaoVaUpdate() {
+        return "HomeBaoCaoVaUpdate";
+    }
+    @GetMapping("/setting")
+    public String getHomeSetting() {
+        return "HomeCaiDat";
     }
 }
