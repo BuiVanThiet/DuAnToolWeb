@@ -16,12 +16,12 @@
 
                 <div class="d-flex gap-4">
                     <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input mt-0" type="radio" name="browser" id="fireFox" checked>
+                        <input class="form-check-input mt-0" type="radio" name="browser" id="fireFox" value="fireFox" checked>
                         <label class="form-check-label ms-2" for="fireFox">Fire Fox</label>
                     </div>
 
                     <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input mt-0" type="radio" name="browser" id="chrome">
+                        <input class="form-check-input mt-0" type="radio" name="browser" value="chrome" id="chrome">
                         <label class="form-check-label ms-2" for="chrome">Chrome</label>
                     </div>
                 </div>
@@ -32,18 +32,18 @@
 
                 <div class="d-flex gap-4">
                     <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input mt-0" type="radio" name="profileMode" id="proFile" checked>
+                        <input class="form-check-input mt-0" type="radio" name="profileMode" id="proFile" value="profile" checked>
                         <label class="form-check-label ms-2" for="proFile">Có Profile</label>
                     </div>
 
                     <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input mt-0" type="radio" name="profileMode" id="notProFile">
+                        <input class="form-check-input mt-0" type="radio" name="profileMode" value="notProfile" id="notProFile">
                         <label class="form-check-label ms-2" for="notProFile">Không Profile</label>
                     </div>
                 </div>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-outline-success col-12 mb-3">Tải Ảnh Vùng Main</button>
+                <button type="button" class="btn btn-outline-success col-12 mb-3" onclick="start()">Tải Ảnh Vùng Main</button>
                 <button type="button" class="btn btn-outline-success col-12 mb-3">Tải Full Ảnh</button>
                 <button type="button" class="btn btn-outline-success col-12 mb-3">Tải Ảnh Theo Trang</button>
                 <button type="button" class="btn btn-outline-success col-12 mb-3">Tải Ảnh Chọn Màu</button>
@@ -69,6 +69,9 @@
             </table>
         </div>
     </div>
+    <script th:src="@{/js/taiAnh/TaiAnh.js}" type="text/javascript"></script>
+
+
 </div>
 </body>
 </html>
