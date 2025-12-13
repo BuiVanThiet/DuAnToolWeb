@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{BaseTool}"><head>
+    <meta charset="UTF-8">
+    <title>Báo cáo và update</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h3>Báo cáo và update</h3>
+    <hr>
+    <div class="mb-3">
+        <label class="form-label">Ảnh</label>
+        <input type="file" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Nội dung:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-outline-success">Gửi</button>
+</div>
+</body>
+</html>
