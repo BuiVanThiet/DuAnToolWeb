@@ -34,4 +34,8 @@ public class Home256 extends BaseController {
     public String getHomeSetting() {
         return "HomeCaiDat";
     }
+    @GetMapping("/chis")
+    public String getHomeChis() {
+        return "chis/index1";
+    }
 }

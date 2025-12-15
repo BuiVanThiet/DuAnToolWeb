@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StaffImplement implements StaffService {
@@ -17,4 +18,16 @@ public class StaffImplement implements StaffService {
     public List<Staff> findAll() {
         return staffRepository.findAll();
     }
+
+    @Override
+    public Optional<Staff> findById(Integer integer) {
+        return staffRepository.findById(integer);
+    }
+
+    @Override
+    public Optional<Staff> getStaffByEmail(String email) {
+        return staffRepository.getStaffByEmail(email);
+    }
+
+
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Gifts & Lights</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000000; font-family: 'Segoe UI', sans-serif; }
+        #canvas-container { width: 100%; height: 100vh; display: block; }
+
+        #ui-layer {
+            position: absolute; bottom: 30px; width: 100%;
+            text-align: center; pointer-events: none; z-index: 100;
+        }
+
+        .badge {
+            display: inline-block; background: rgba(0,0,0,0.7);
+            border: 2px solid #FFD700; color: #FFD700;
+            padding: 10px 25px; border-radius: 50px;
+            font-size: 18px; font-weight: bold; margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 10px #FFD700;
+        }
+
+        .guide { color: #ccc; font-size: 13px; margin-bottom: 20px; text-shadow: 0 2px 4px black;}
+
+        button {
+            pointer-events: auto; cursor: pointer;
+            background: linear-gradient(to bottom, #D32F2F, #8B0000);
+            color: #FFF; border: 2px solid #FFD700;
+            padding: 15px 50px; border-radius: 30px;
+            font-weight: 800; font-size: 16px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        #camera-preview {
+            position: absolute; top: 15px; right: 15px;
+            width: 120px; height: 90px;
+            border: 2px solid rgba(255,0,0,0.5);
+            transform: scaleX(-1); opacity: 0.6; border-radius: 8px;
+        }
+
+        #error-log { display: none; position: absolute; top: 0; left: 0; color: red; background: rgba(0,0,0,0.8); z-index: 999; padding: 10px; }
+    </style>
+</head>
+<body>
+<input type="file" id="fileInput" accept="image/*" multiple webkitdirectory directory style="display:none;">
+<button id="btnSelectPhotos" style="display:none; /* Sẽ hiện sau khi nhấn Start */">Chọn Album Ảnh</button>
+<div id="error-log"></div>
+<div id="ui-layer">
+    <div id="status" class="badge">🎄 Giang Sinh An Lanh 🎄</div>
+    <div class="guide">
+<!--        <b>lăn lên:</b> mở cây &nbsp;|&nbsp; <b>Click:</b> Xem ảnh &nbsp;|&nbsp; <b>lăn xuống:</b> Thu cây-->
+        <b>🖐:</b> mở cây &nbsp;|&nbsp; <b>👌:</b> Xem ảnh &nbsp;|&nbsp; <b>✊:</b> Thu cây
+
+    </div>
+    <button id="btnStart" onclick="startSystem()">BẮT ĐẦU</button>
+</div>
+
+<div id="canvas-container"></div>
+<video class="input_video" style="display:none"></video>
+<canvas id="camera-preview"></canvas>
+<script th:src="@{/js/chis/chisMast.js}" type="text/javascript"></script>
+<!-- <script src="scriproot.js"></script> -->
+</body>
+</html>
